@@ -1,0 +1,4 @@
+packages/
+build/
+*.js
+pubspec.lock

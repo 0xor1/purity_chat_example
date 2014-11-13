@@ -1,0 +1,20 @@
+name: purity_chat_example
+version: 0.0.0
+author: "Daniel Robinson\r\n<daniel.robinson.dart@gmail.com>"
+description: A sample Purity web application
+homepage: http://github.com/0xor1/purity_chat_example
+environment:
+  sdk: '>=0.8.10+6 <2.0.0'
+dependencies:
+  browser: any
+  core_elements: '>=0.2.0 <0.3.0'
+  paper_elements: '>=0.2.0 <0.3.0'
+  polymer: '>=0.14.0 <0.15.0'
+  purity: '>=0.18.0 <0.19.0'
+  purity_oauth2: '>=0.10.0 <0.11.0'
+transformers:
+- polymer:
+    entry_points:
+    - web/index.html
+    - test/integration/index_with_purity.html
+    - test/integration/index_without_purity.html
