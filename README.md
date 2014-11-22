@@ -12,7 +12,7 @@ app, browse to `http://localhost:4346/` to see the view consuming the remote pro
 with all messages being realyed to/from the **Host** via websockets.
 
 The chat example application demonstrates how to set up a realtime single page web app
-with google oauth2 login that links multiple user sessions to create a sinlge global
+with google oauth2 login that links multiple user sessions to create a single global
 chat room. But more importantly how the whole application stack can be run on a single
 page allowing developers to debug multiple clients and the server side all in a single
 web page, which is a very powerful experience, even more so when considering that it can be
