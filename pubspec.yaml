@@ -1,12 +1,11 @@
 name: purity_chat_example
 version: 0.0.0
-author: "Daniel Robinson\r\n<daniel.robinson.dart@gmail.com>"
+author: Daniel Robinson <daniel.robinson.dart@gmail.com>
 description: A sample Purity web application
 homepage: http://github.com/0xor1/purity_chat_example
 environment:
-  sdk: '>=0.8.10+6 <2.0.0'
+  sdk: '>=1.3.0+6 <2.0.0'
 dependencies:
-  browser: any
   polymer: '>=0.14.0 <0.15.0'
   purity: '>=0.19.0 <0.20.0'
   purity_oauth2: '>=0.11.2 <0.12.0'
