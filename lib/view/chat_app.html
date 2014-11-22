@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <link rel="import" href="../../../packages/polymer/polymer.html">
 <link rel="import" href="../../../packages/paper_elements/paper_button.html">
+<link rel="import" href="../../../packages/purity_oauth2/view/google_login.html">
 <link rel="import" href="../../../packages/purity_chat_example/view/chat_room.html">
 <polymer-element name="chat-app">
 
@@ -14,15 +15,11 @@
         padding: 0;
         overflow: hidden;
       }
-      #login-button{
+      google-login-element{
         margin: auto;
-        background: #dd4b39;
-        color: #fff;
-        border-radius: 5px;
       }
     </style>
     <div id="root">
-      <paper-button id="login-button" label="Sign in with Google" raisedButton></paper-button>
     </div>
   </template>
 

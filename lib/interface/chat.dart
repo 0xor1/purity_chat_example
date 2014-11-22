@@ -7,18 +7,21 @@ library chat.interface;
 import 'package:purity/purity.dart';
 
 abstract class IChatApp implements Source{
-  /// initiates the user login flow, if successful this should result in a
-  /// [ChatRoomAccessed] event containing an [IChatRoomAccessPoint] Source
-  void login();
+  void requestLoginObject();
 }
 
 abstract class IChatRoomAccessPoint implements Source{
   void say(String message);
 }
 
+class LoginObjectRequest extends Transmittable{
+  Source get login => get('login');
+  void set login (Source o) => set('login', o);
+}
+
 class ChatRoomAccessed extends Transmittable{
-  dynamic get chatRoomAccessPoint => get('chatRoomAccessPoint');
-  void set chatRoomAccessPoint (dynamic o) => set('chatRoomAccessPoint', o);
+  Source get chatRoomAccessPoint => get('chatRoomAccessPoint');
+  void set chatRoomAccessPoint (Source o) => set('chatRoomAccessPoint', o);
 }
 
 class UserEnteredChatRoom extends Transmittable{
@@ -45,6 +48,7 @@ class ChatRoomMessage extends Transmittable{
 }
 
 final Registrar registerChatTranTypes = generateRegistrar('chat.interface', 'ci', [
+   new TranRegistration.subtype(LoginObjectRequest, () => new LoginObjectRequest()),
    new TranRegistration.subtype(ChatRoomAccessed, () => new ChatRoomAccessed()),
    new TranRegistration.subtype(ChatRoomMessage, () => new ChatRoomMessage()),
    new TranRegistration.subtype(UserEnteredChatRoom, () => new UserEnteredChatRoom()),

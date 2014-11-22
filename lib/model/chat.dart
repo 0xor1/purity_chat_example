@@ -25,8 +25,10 @@ class ChatApp extends Source implements IChatApp{
     listen(_login, All, _loginHandler);
   }
 
-  void login(){
-    _login.login();
+  void requestLoginObject(){
+    emit(
+      new LoginObjectRequest()
+      ..login = _login);
   }
 
   void _loginHandler(Event e){
