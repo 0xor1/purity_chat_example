@@ -4,6 +4,12 @@
 
 library chat.interface;
 
+@MirrorsUsed(
+  targets: const[
+    IChatApp,
+    IChatRoomAccessPoint
+  ], override: '*')
+import 'dart:mirrors';
 import 'package:purity/purity.dart';
 
 abstract class IChatApp implements Source{
