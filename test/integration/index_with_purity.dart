@@ -14,23 +14,23 @@ import 'package:purity_oauth2/mock_model/oauth2.dart';
 
 void main(){
 
-  initPolymer();
+  initPolymer().run((){
+    var chatRoom = new model.ChatRoom();
 
-  var chatRoom = new model.ChatRoom();
+    var host = new Host(
+      (_) => new model.ChatApp(new MockLogin(), chatRoom),
+      (chatApp) => chatApp.close(),
+      0);
 
-  var host = new Host(
-    (_) => new model.ChatApp(new MockLogin(), chatRoom),
-    (chatApp) => chatApp.close(),
-    0);
+    var hostView = new client.LocalHostView(host);
 
-  var hostView = new client.LocalHostView(host);
+    initConsumerSettings(
+      (chatApp, proxyEndPoint){
+        var consumer = new view.ChatAppConsumer(chatApp);
+        hostView.addNewClientView(proxyEndPoint, consumer.view, 300);
+      },
+      (){});
 
-  initConsumerSettings(
-    (chatApp, proxyEndPoint){
-      var consumer = new view.ChatAppConsumer(chatApp);
-      hostView.addNewClientView(proxyEndPoint, consumer.view, 300);
-    },
-    (){});
-
-  document.body.append(hostView.html);
+    document.body.append(hostView.html);
+  });
 }
