@@ -2,3 +2,4 @@ packages/
 build/
 *.js
 pubspec.lock
+.pub/
